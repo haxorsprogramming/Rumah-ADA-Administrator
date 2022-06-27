@@ -1,14 +1,25 @@
-require('dotenv').config();
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
-var ejs = require('ejs'); 
+const authLib = require("./auth-lib");
 
+var ejs = require("ejs");
+var API_SERVER = process.env.API_SERVER;
+
+ejs.open = "{{";
+ejs.close = "}}";
+
+app.use(express.static('public'));
+app.set('views', './bind');
+app.set('view engine', 'ejs');
+
+// Main app 
 app.get("/", (req, res) => {
-    res.send("<code>ADA Indonesia Backend</code>");
+    authLib.loginPage(req, res);
 });
 
-
 app.listen(port, () => {
-    console.log(`Aplikasi berjalan di port ${port}`);
+  console.log(`Aplikasi berjalan di port ${port}`);
 });
