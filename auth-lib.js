@@ -4,7 +4,7 @@ var API_SERVER = process.env.API_SERVER;
 
 function loginPage(req, res){
     let dr = { judul: "Rumah ADA - ADA Info Community", api: API_SERVER };
-    res.render("home", dr);
+    res.render("auth/loginpage", dr);
 }
 
-module.exports = { loginPage};
+module.exports = { loginPage };
