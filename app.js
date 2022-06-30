@@ -11,13 +11,18 @@ var API_SERVER = process.env.API_SERVER;
 ejs.open = "{{";
 ejs.close = "}}";
 
-app.use(express.static('public'));
-app.set('views', './bind');
-app.set('view engine', 'ejs');
+app.use(express.static("public"));
+app.set("views", "./bind");
+app.set("view engine", "ejs");
 
-// Main app 
+// Main app
 app.get("/", (req, res) => {
-    authLib.loginPage(req, res);
+  authLib.loginPage(req, res);
+});
+
+app.get("/dashboard", (req, res) => {
+  let dr = { judul: "Rumah ADA - ADA Info Community", api: API_SERVER };
+  res.render("main/dashboard", dr);
 });
 
 app.listen(port, () => {
