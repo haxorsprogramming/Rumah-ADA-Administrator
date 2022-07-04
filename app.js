@@ -7,6 +7,7 @@ const authLib = require("./auth-lib");
 
 var ejs = require("ejs");
 var API_SERVER = process.env.API_SERVER;
+var PATH_SERVER = process.env.PATH_SERVER;
 
 ejs.open = "{{";
 ejs.close = "}}";
@@ -21,12 +22,16 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  let dr = { judul: "Rumah ADA - ADA Info Community", api: API_SERVER };
+  let dr = { judul: "Rumah ADA - ADA Info Community", api: API_SERVER, pathServer : PATH_SERVER};
   res.render("main/dashboard", dr);
 });
 
 app.get("/beranda", (req, res) => {
-  
+  res.render("main/beranda");
+});
+
+app.get("/app/post/data", (req, res) => {
+  res.render("main/post/post");
 });
 
 app.listen(port, () => {
