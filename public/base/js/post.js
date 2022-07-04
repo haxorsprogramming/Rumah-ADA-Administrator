@@ -6,29 +6,36 @@ var postApp = new Vue({
   data: {
     dataPost: [],
   },
-  methods: {},
+  methods: {
+    tambahPostAtc : function()
+    {
+        renderPage("app/post/tambah", "Tambah Artikel");
+    }
+  },
 });
 // inisialiasi
-var sendGetRequest = async () => {
+var getPostDataRequest = async () => {
   try {
     const resp = await axios.get(rGetPost);
     let postData = resp.data.post;
-    let totalPost = postData.length;
-    console.log(totalPost);
+    let ordPost = 1;
     postData.forEach(renderPost);
     function renderPost(item, index) {
-      // console.log(postData[index]);
       postApp.dataPost.push({
+        no : ordPost,
         judul: postData[index].judul,
+        shortDeks : postData[index].short_deks,
+        slug : postData[index].slug,
+        writer : postData[index].writer
       });
       setTimeout(function(){
         $("#tblDataPost").dataTable();
       }, 1000);
+      ordPost++;
     }
   } catch (err) {
-    // Handle Error Here
     console.error(err);
   }
 };
 
-sendGetRequest();
+getPostDataRequest();

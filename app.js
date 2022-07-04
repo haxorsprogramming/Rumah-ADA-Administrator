@@ -34,6 +34,10 @@ app.get("/app/post/data", (req, res) => {
   res.render("main/post/post");
 });
 
+app.get("/app/post/tambah", (req, res) => {
+  res.render("main/post/form-tambah-post");
+});
+
 app.listen(port, () => {
   console.log(`Aplikasi berjalan di port ${port}`);
 });
