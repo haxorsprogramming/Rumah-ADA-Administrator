@@ -44,3 +44,9 @@ function confirmQuest(icon, title, text, x)
         }
     });
 }
+
+function tidur_bentar(ms){
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
