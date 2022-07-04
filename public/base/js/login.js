@@ -30,7 +30,8 @@ var appLogin = new Vue({
         }
     }
 });
-
+// inisialisasi 
+document.querySelector("#txtUsername").focus();
 function pesanUmumApp(icon, title, text)
 {
   Swal.fire({

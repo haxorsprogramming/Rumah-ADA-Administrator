@@ -25,6 +25,10 @@ app.get("/dashboard", (req, res) => {
   res.render("main/dashboard", dr);
 });
 
+app.get("/beranda", (req, res) => {
+  
+});
+
 app.listen(port, () => {
   console.log(`Aplikasi berjalan di port ${port}`);
 });
