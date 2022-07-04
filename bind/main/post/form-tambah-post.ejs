@@ -1,4 +1,4 @@
-<div class="row" id="divDataPost">
+<div class="row" id="divTambahArtikel">
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
@@ -8,17 +8,17 @@
           <div class="col-6 col-lg-6">
             <div class="form-group">
               <label>Judul</label>
-              <input type="text" class="form-control" id="txtJudul" />
+              <input type="text" class="form-control" id="txtJudul" onkeyup="setSlug()"/>
             </div>
             <div class="form-group">
               <label>Slug</label>
-              <input type="text" class="form-control" id="txtJudul" />
+              <input type="text" class="form-control" id="txtSlug" />
             </div>
           </div>
           <div class="col-6 col-lg-6">
             <div class="form-group">
               <label>Writer</label>
-              <input type="text" class="form-control" id="txtJudul" />
+              <input type="text" class="form-control" id="txtWriter" />
             </div>
           </div>
         </div>
@@ -26,7 +26,12 @@
           <div class="col-12 col-lg-12">
             <div class="form-group">
               <label>Isi Artikel</label>
-              
+              <div id="editor">
+                <p>This is some sample content.</p>
+              </div>
+            </div>
+            <div>
+                <a href="javascript:void(0)" class="btn btn-primary" @click="prosesAddArtikel()">Proses Tambah Artikel</a>
             </div>
           </div>
         </div>

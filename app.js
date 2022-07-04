@@ -38,6 +38,11 @@ app.get("/app/post/tambah", (req, res) => {
   res.render("main/post/form-tambah-post");
 });
 
+// proses tambah data 
+app.post("/app/post/tambah/proses", (req, res) => {
+
+});
+
 app.listen(port, () => {
   console.log(`Aplikasi berjalan di port ${port}`);
 });
