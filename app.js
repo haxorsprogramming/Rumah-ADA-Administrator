@@ -35,12 +35,7 @@ app.get("/app/post/data", (req, res) => {
 });
 
 app.get("/app/post/tambah", (req, res) => {
-  res.render("main/post/form-tambah-post");
-});
-
-// proses tambah data 
-app.post("/app/post/tambah/proses", (req, res) => {
-
+  res.render("main/post/tambah-post");
 });
 
 app.listen(port, () => {

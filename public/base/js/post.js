@@ -10,6 +10,10 @@ var postApp = new Vue({
     tambahPostAtc : function()
     {
         renderPage("app/post/tambah", "Tambah Artikel");
+    },
+    deleteAtc : function(idPost)
+    {
+      console.log(idPost);
     }
   },
 });
@@ -26,7 +30,8 @@ var getPostDataRequest = async () => {
         judul: postData[index].judul,
         shortDeks : postData[index].short_deks,
         slug : postData[index].slug,
-        writer : postData[index].writer
+        writer : postData[index].writer,
+        idPost : postData[index].id
       });
       setTimeout(function(){
         $("#tblDataPost").dataTable();

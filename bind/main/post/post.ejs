@@ -28,7 +28,8 @@
                                 <td>{{ dp.shortDeks }}</td>
                                 <td><b>{{ dp.writer }}</b></td>
                                 <td>
-                                    <a class="btn btn-primary" href="javascript:void(0)">Edit</a>
+                                    <a class="btn btn-primary btn-sm" href="javascript:void(0)">Edit</a>&nbsp;&nbsp;
+                                    <a class="btn btn-warning btn-sm" href="javascript:void(0)" @click="deleteAtc(dp.idPost)">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
