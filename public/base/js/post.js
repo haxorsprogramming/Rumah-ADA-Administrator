@@ -1,5 +1,6 @@
 // route
 var rGetPost = apiServer + "post/data/all";
+var rProcessDelete = apiServer + "post/delete/process";
 // vue object
 var postApp = new Vue({
   el: "#divDataPost",
@@ -13,11 +14,20 @@ var postApp = new Vue({
     },
     deleteAtc : function(idPost)
     {
-      console.log(idPost);
+      confirmQuest('warning', 'Konfirmasi', 'Hapus artikel ...?', function (x) {deleteConfirm(idPost)});
     }
   },
 });
 // inisialiasi
+
+function deleteConfirm(idPost)
+{
+  $.post(rProcessDelete, {'idPost':idPost}, function(data){
+    pesanUmumApp('success', 'Sukses !!!', 'Sukses menghapus artikel !!!');
+    renderPage('app/post/data', 'Data Post');
+  });
+}
+
 var getPostDataRequest = async () => {
   try {
     const resp = await axios.get(rGetPost);
